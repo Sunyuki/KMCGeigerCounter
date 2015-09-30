@@ -122,10 +122,10 @@ static NSTimeInterval const kNormalFrameDuration = 1.0 / kHardwareFramesPerSecon
 
 - (void)start
 {
-    NSURL *tickSoundURL = [[NSBundle bundleForClass:KMCGeigerCounter.class] URLForResource:@"KMCGeigerCounterTick" withExtension:@"aiff"];
-    SystemSoundID tickSoundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef) tickSoundURL, &tickSoundID);
-    self.tickSoundID = tickSoundID;
+//    NSURL *tickSoundURL = [[NSBundle bundleForClass:KMCGeigerCounter.class] URLForResource:@"KMCGeigerCounterTick" withExtension:@"aiff"];
+//    SystemSoundID tickSoundID;
+//    AudioServicesCreateSystemSoundID((__bridge CFURLRef) tickSoundURL, &tickSoundID);
+//    self.tickSoundID = tickSoundID;
 
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkWillDraw:)];
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
@@ -151,8 +151,8 @@ static NSTimeInterval const kNormalFrameDuration = 1.0 / kHardwareFramesPerSecon
     [self.displayLink invalidate];
     self.displayLink = nil;
 
-    AudioServicesDisposeSystemSoundID(self.tickSoundID);
-    self.tickSoundID = 0;
+//    AudioServicesDisposeSystemSoundID(self.tickSoundID);
+//    self.tickSoundID = 0;
 }
 
 - (void)setRunning:(BOOL)running
